@@ -1,6 +1,4 @@
-<div style="width:20%; margin: auto;">
 !["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
-</div>
 
 ## 🍅 **PomodoroZ**: A CLI Pomodoro Timer for Linux Systems 🚀
 
