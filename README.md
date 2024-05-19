@@ -1,4 +1,4 @@
-![PomodoroZ]("/storage/images/pomodoroz_icon.png")
+![PomodoroZ]("storage/images/pomodoroz_icon.png")
 
 ## 🍅 **PomodoroZ**: A CLI Pomodoro Timer for Linux Systems 🚀
 
