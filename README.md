@@ -1,2 +1,3 @@
-# PomodoroZ
-🍅 **PomodoroZ**: An extremely minimalist Command-line Pomodoro Timer for Linux Systems 🚀
+# PomodoroZ 🍅🔥
+
+🍅🔥 **PomodoroZ**: An extremely minimalist Command-line Pomodoro Timer for Linux Systems 🚀
