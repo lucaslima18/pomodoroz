@@ -7,6 +7,12 @@
 |  __/ (_) | | | | | | (_) | (_| | (_) | | | (_) / /_ 
 |_|   \___/|_| |_| |_|\___/ \__,_|\___/|_|  \___/____|
 ```
+- **⚡ Powered by**: Lucas Amorim (Kakaroto)
+- **📧 Email:** lucas.ala1999@gmail.com
+- **🐙 GitHub:** https://github.com/lucaslima18
+- **🔗 LinkedIn:** https://www.linkedin.com/in/lucas-amorim-b09691173/
+
+
 ## 🍅 **PomodoroZ**: A CLI Pomodoro Timer for Linux Systems 🚀
 
 PomodoroZ is an extremely minimalist command-line Pomodoro timer designed specifically for Linux systems. It offers a minimalist platform for efficient task management using the Pomodoro technique. Streamline your workflow, stay focused, and boost productivity with PomodoroZ.
