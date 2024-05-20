@@ -5,10 +5,10 @@
 |  __/ (_) | | | | | | (_) | (_| | (_) | | | (_) / /_ 
 |_|   \___/|_| |_| |_|\___/ \__,_|\___/|_|  \___/____|
 ```
-- **⚡ Powered by**: Lucas Amorim (Kakaroto)
-- **📧 Email:** lucas.ala1999@gmail.com
-- **🐙 GitHub:** https://github.com/lucaslima18
-- **🔗 LinkedIn:** https://www.linkedin.com/in/lucas-amorim-b09691173/
+**⚡ Powered by**: Lucas Amorim (Kakaroto)
+**📧 Email:** lucas.ala1999@gmail.com
+**🐙 GitHub:** https://github.com/lucaslima18
+**🔗 LinkedIn:** https://www.linkedin.com/in/lucas-amorim-b09691173/
 
 !["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
 
