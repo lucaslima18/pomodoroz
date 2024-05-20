@@ -6,9 +6,9 @@
 |_|   \___/|_| |_| |_|\___/ \__,_|\___/|_|  \___/____|
 ```
 **⚡ Powered by**: Lucas Amorim (Kakaroto)
-**📧 Email:** lucas.ala1999@gmail.com
 **🐙 GitHub:** https://github.com/lucaslima18
-**🔗 LinkedIn:** https://www.linkedin.com/in/lucas-amorim-b09691173/
+**🔗 LinkedIn:** https://acesse.one/lucas-amorim-linkedin
+**📧 Email:** lucas.ala1999@gmail.com
 
 !["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
 
@@ -26,8 +26,3 @@ PomodoroZ is an extremely minimalist command-line Pomodoro timer designed specif
 
 ### 📖 **Usage**:
 
-
-⚡ **Powered by**: Lucas Amorim
-📧 **Email**: lucas.ala1999@gmail.com
-🐙 **GitHub**: [lucaslima18](https://github.com/lucaslima18)
-🔗 **LinkedIn**: [Lucas Amorim](https://www.linkedin.com/in/lucas-amorim-b09691173/)
