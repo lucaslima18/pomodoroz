@@ -1,0 +1,13 @@
+
+class PomodoroManager:
+    def __init__():
+        ...
+    
+    def calculate_timer():
+        ...
+    
+    def start_pomodoro():
+        ...
+    
+    def start_break():
+        ...
