@@ -10,10 +10,10 @@
 				|_|   \___/|_| |_| |_|\___/ \__,_|\___/|_|  \___/____|
 ```
 
-**⚡ Powered by**: Lucas Amorim (Kakaroto)
-**🐙 GitHub:** https://github.com/lucaslima18
-**🔗 LinkedIn:** https://acesse.one/lucas-amorim-linkedin
-**📧 Email:** lucas.ala1999@gmail.com
+- **⚡ Powered by**: Lucas Amorim (Kakaroto)
+- **🐙 GitHub:** https://github.com/lucaslima18
+- **🔗 LinkedIn:** https://acesse.one/lucas-amorim-linkedin
+- **📧 Email:** lucas.ala1999@gmail.com
 
 ## 🍅 **PomodoroZ**: A CLI Pomodoro Timer for Linux Systems 🚀
 
