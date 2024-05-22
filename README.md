@@ -1,3 +1,7 @@
+<div align="center">
+	<img src="https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png">
+</div>
+
 ```
  ____                           _                _____
 |  _ \ ___  _ __ ___   ___   __| | ___  _ __ ___|__  /
@@ -5,10 +9,6 @@
 |  __/ (_) | | | | | | (_) | (_| | (_) | | | (_) / /_ 
 |_|   \___/|_| |_| |_|\___/ \__,_|\___/|_|  \___/____|
 ```
-
-<div align="center">
-	<img src="https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png">
-</div>
 
 **⚡ Powered by**: Lucas Amorim (Kakaroto)
 **🐙 GitHub:** https://github.com/lucaslima18
