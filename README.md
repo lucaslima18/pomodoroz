@@ -7,12 +7,8 @@
 ```
 
 <div align="center">
-	<img src="https://i.imgur.com/8BgVXcY.png">
+	<img src="[https://i.imgur.com/8BgVXcY.png](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)">
 </div>
-
-<img src="https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png", style="vertical-align:middle">
-
-!["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
 
 **⚡ Powered by**: Lucas Amorim (Kakaroto)
 **🐙 GitHub:** https://github.com/lucaslima18
