@@ -7,7 +7,7 @@
 ```
 
 <div align="center">
-	<img src="https://i.imgur.com/8BgVXcY.png](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png">
+	<img src="https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png">
 </div>
 
 **⚡ Powered by**: Lucas Amorim (Kakaroto)
