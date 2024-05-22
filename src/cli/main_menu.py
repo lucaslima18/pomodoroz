@@ -8,6 +8,7 @@ from pyfiglet import figlet_format
 
 from src.libs.notification_manager import NotificationManager
 from src.utils.progress_bar import progress_bar
+from src.utils.text_to_bold import text_to_bold
 
 
 class MainMenu:
@@ -27,12 +28,12 @@ class MainMenu:
         self.__main_menu_selector()
 
     def __start_icon(self) -> None:
-        print(figlet_format(text="PomodoroZ"))
-        print("⚡ Powered by: Lucas Amorim (Kakaroto)")
-        print("📧 Email: lucas.ala1999@gmail.com")
-        print("🐙 GitHub: https://github.com/lucaslima18")
-        print("🔗 LinkedIn: https://www.linkedin.com/in/lucas-amorim-b09691173/")
-        print("\n\n")
+        print(figlet_format(text='PomodoroZ'))
+        print(f'⚡ {text_to_bold("Powered by")}: Lucas Amorim (Kakaroto)')
+        print(f'📧 {text_to_bold("Email")}: lucas.ala1999@gmail.com')
+        print(f'🐙 {text_to_bold("GitHub")}: https://github.com/lucaslima18')
+        print(f'🔗 {text_to_bold("LinkedIn")}: https://www.linkedin.com/in/lucas-amorim-b09691173/')
+        print('\n\n')
 
     def __main_menu_selector(self) -> str:
         main_menu_item = questionary.select(
