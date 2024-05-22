@@ -1,3 +1,5 @@
+!["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
+
 ```
  ____                           _                _____
 |  _ \ ___  _ __ ___   ___   __| | ___  _ __ ___|__  /
@@ -9,8 +11,6 @@
 **🐙 GitHub:** https://github.com/lucaslima18
 **🔗 LinkedIn:** https://acesse.one/lucas-amorim-linkedin
 **📧 Email:** lucas.ala1999@gmail.com
-
-!["http://storage/images/pomodoroz_icon.png"](https://github.com/lucaslima18/PomodoroZ/blob/main/storage/images/pomodoroz_icon.png)
 
 ## 🍅 **PomodoroZ**: A CLI Pomodoro Timer for Linux Systems 🚀
 
