@@ -1,8 +1,8 @@
 import os
 
-from src.cli.main_menu import MainMenu
+from src.cli.main_menu import MenuManager
 
-MainMenu(
+MenuManager(
     app_name='PomodoroZ',
     app_icon=f'{os.getcwd()}/storage/images/pomodoroz_icon.png',
     storage_path=f'{os.getcwd()}/storage/'

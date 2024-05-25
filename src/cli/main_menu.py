@@ -1,17 +1,13 @@
-import os
-import re
-import time
 import questionary
 
 from typing import Any
-from pyfiglet import figlet_format
 
 from src.libs.notification_manager import NotificationManager
 from src.utils.progress_bar import progress_bar
-from src.utils.text_to_bold import text_to_bold
 
+from src.cli.cli_manager import CLIManager
 
-class MainMenu:
+class MenuManager:
     def __init__(
         self, app_name: str,
         app_icon: str,
@@ -24,37 +20,91 @@ class MainMenu:
         )
 
     def __call__(self, *args: Any, **kwds: Any) -> str:
-        self.__start_icon()
-        self.__main_menu_selector()
+        self.main_menu_selector()
 
-    def __start_icon(self) -> None:
-        print(figlet_format(text='PomodoroZ'))
-        print(f'⚡ {text_to_bold("Powered by")}: Lucas Amorim (Kakaroto)')
-        print(f'📧 {text_to_bold("Email")}: lucas.ala1999@gmail.com')
-        print(f'🐙 {text_to_bold("GitHub")}: https://github.com/lucaslima18')
-        print(f'🔗 {text_to_bold("LinkedIn")}: https://www.linkedin.com/in/lucas-amorim-b09691173/')
-        print('\n\n')
-
-    def __main_menu_selector(self) -> str:
+    def main_menu_selector(self) -> str:
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
+        CLIManager.creator_info()
         main_menu_item = questionary.select(
             message="What you whant to do?",
-            choices=["📃 Task List", "🍅 Start Pomodoro"]
+            choices=["📁 My Projects", "📊 My Stats", "🍅 Start an standalone Pomodoro"]
         ).ask()
+        
+        match main_menu_item:
+            case '📁 My Projects':
+                self.__project_select(offset=1, limit=5)
 
-        if re.search("task list", main_menu_item, re.IGNORECASE):
-            self.__task_list()
-        self.__pomodoro_manager()
+            case '📊 My Stats':
+                ...
 
-    def __task_list(self):
-        questionary.select(
-            "My tasks:",
-            choices=["Test1", "Test2", "Previous menu"]
-        ).ask()
+            case '🍅 Start an standalone Pomodoro':
+                self.__pomodoro_manager()
+    
+    def __project_select(self, offset: int,limit: int):
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
+        buceta = [
+            'Project Alpha', 'Project Beta', 'Project Gamma', 'Project Delta',
+            'Project Epsilon', 'Project Zeta', 'Project Eta', 'Project Theta',
+            'Project Iota', 'Project Kappa', 'Project Lambda', 'Project Mu'
+        ]
+        project = CLIManager.paginated_choice(
+            message='Select a project:',
+            offset=offset,limit=limit,
+            task_list=buceta
+        )
 
+        match project:
+            case '🏠 Home':
+                self.main_menu_selector()
+            
+            case '⏪ Previous':
+                self.__project_select(offset=offset-limit, limit=limit)
+            
+            case '⏩ next':
+                self.__project_select(offset=offset+limit, limit=limit)
+
+            case _ if project in buceta:
+                self.__project_task_select(offset=1, limit=5)
+    
+    def __project_task_select(self, offset: int, limit: int):
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
+        buceta = [
+            'Task Planning 🍅🍅🍅',
+            'Task Design 🍅🍅🍅🍅',
+            'Task Development 🍅🍅',
+            'Task Testing 🍅🍅🍅🍅🍅',
+            'Task Deployment 🍅',
+            'Task Documentation 🍅🍅🍅',
+            'Task Review 🍅🍅🍅🍅',
+            'Task Analysis 🍅🍅',
+            'Task Meeting 🍅🍅🍅🍅🍅',
+            'Task Feedback 🍅🍅',
+            'Task Research 🍅🍅🍅',
+            'Task Maintenance 🍅🍅🍅🍅'
+        ]
+        project = CLIManager.paginated_choice(message='How task you want start?',offset=offset,limit=limit,task_list=buceta)
+
+        match project:
+            case '🏠 Home':
+                self.main_menu_selector()
+            
+            case '⏪ Previous':
+                self.__project_select(offset=offset-limit, limit=limit)
+            
+            case '⏩ next':
+                self.__project_select(offset=offset+limit, limit=limit)
+
+            case _ if project in buceta:
+                self.__pomodoro_manager()
+            
+        
     def __pomodoro_manager(self):
         ## fazer com que tenha um controle do pomodoro tipo, iniciar descanso e etc...
-        os.system('cls' if os.name == 'nt' else 'clear')
-        self.__start_icon()
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
         print("Pomodoro Name: Test")
         print("Pomodoro Description: Teste descricao")
         print("Total time: " "12h")
@@ -65,11 +115,11 @@ class MainMenu:
             title="🍅 Pomodoro X completed successfully! 🎉",
             state="pomodoro_finished"
         )
-        os.system('cls' if os.name == 'nt' else 'clear')
-        self.__start_icon()
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
         questionary.confirm("⏳ Start break?").ask()
-        os.system('cls' if os.name == 'nt' else 'clear')
-        self.__start_icon()
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
         print("Pomodoro Name: Test")
         print("Pomodoro Description: Teste descricao")
         print("Total time: " "12h")
@@ -79,6 +129,6 @@ class MainMenu:
             title="🍅 Break Over! Let's Begin Pomodoro X! 🔥",
             state="break_finished"
         )
-        os.system('cls' if os.name == 'nt' else 'clear')
-        self.__start_icon()
+        CLIManager.clear_terminal()
+        CLIManager.main_logo()
         questionary.confirm("⏳ Start new pomodoro?").ask()
