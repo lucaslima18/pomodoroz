@@ -1,5 +1,6 @@
 from typing import List
 
+
 def paginated_menu(offset: int, limit: int, menu_lenght: int) -> List[str]:
     if offset == 1:
         return ['⏩ next', '🏠 Home']

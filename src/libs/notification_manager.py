@@ -1,5 +1,5 @@
 from plyer import notification
-from src.utils.sound_notification import sound_notification
+from utils.sound_notification import sound_notification
 
 
 class NotificationManager:
