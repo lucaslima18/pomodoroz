@@ -25,10 +25,10 @@ PomodoroZ is an extremely minimalist command-line Pomodoro timer designed specif
 - Designed for Linux systems
 
 ### 🚀 **Installation**:
-1- Clone this repo;
-2- Use poetry to init a Venv: `poetry shell`
-3- Install all packages: `poetry install`
-4- Run project: `python src/main.py`
+1. Clone this repo;
+2. Use poetry to init a Venv: `poetry shell`
+3. Install all packages: `poetry install`
+4. Run project: `python src/main.py`
 
 
 ### 📖 **Usage**:
