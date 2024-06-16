@@ -22,7 +22,6 @@ class NotificationManager:
                 message=message,
                 app_icon=self.app_icon
             )
-            print(state)
             if state:
                 self.send_sound_notification(state=state)
 
@@ -35,13 +34,11 @@ class NotificationManager:
                 sound_notification(
                     f'{self.storage_path}/mp3/pomodoro_finished.mp3'
                 )
-                print("tocando pomodoro finisher")
 
             if 'break_finished' in state.lower():
                 sound_notification(
                     f'{self.storage_path}/mp3/break_finished.mp3'
                 )
-                print("tocando break finisher")
 
         except Exception as err:
             # TODO: Dropar excessão customizada

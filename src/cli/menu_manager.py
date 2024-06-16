@@ -3,8 +3,9 @@ import questionary
 from typing import Any
 
 from libs.notification_manager import NotificationManager
+from libs.schemas import PomodoroInfo
+from libs.pomodoro.pomodoro_manager import PomodoroManager
 from utils.progress_bar import progress_bar
-
 from cli.cli_manager import CLIManager
 from cli.standalone_pomodoro_menu import StandalonePomodoroMenu
 
@@ -20,7 +21,6 @@ class MenuManager:
             app_icon=app_icon,
             storage_path=storage_path
         )
-
         self.cli_manager = CLIManager(notification_manager=self.notifiction_manager)
 
     def run(self) -> str:
@@ -50,11 +50,12 @@ class MenuManager:
                 StandalonePomodoroMenu(
                     notification_manager=self.notifiction_manager
                 ).run()
+                self.main_menu_selector()
 
     def __project_select(self, offset: int,limit: int):
         self.cli_manager.clear_terminal()
         self.cli_manager.main_logo()
-        buceta = [
+        task_fake_list = [
             'Project Alpha', 'Project Beta', 'Project Gamma', 'Project Delta',
             'Project Epsilon', 'Project Zeta', 'Project Eta', 'Project Theta',
             'Project Iota', 'Project Kappa', 'Project Lambda', 'Project Mu'
@@ -62,7 +63,7 @@ class MenuManager:
         project = self.cli_manager.paginated_choice(
             message='Select a project:',
             offset=offset,limit=limit,
-            task_list=buceta
+            task_list=task_fake_list
         )
 
         match project:
@@ -75,13 +76,13 @@ class MenuManager:
             case '⏩ next':
                 self.__project_select(offset=offset+limit, limit=limit)
 
-            case _ if project in buceta:
+            case _ if project in task_fake_list:
                 self.__project_task_select(offset=1, limit=5)
 
     def __project_task_select(self, offset: int, limit: int):
         self.cli_manager.clear_terminal()
         self.cli_manager.main_logo()
-        buceta = [
+        task_fake_list = [
             'Task Planning 🍅🍅🍅',
             'Task Design 🍅🍅🍅🍅',
             'Task Development 🍅🍅',
@@ -95,7 +96,7 @@ class MenuManager:
             'Task Research 🍅🍅🍅',
             'Task Maintenance 🍅🍅🍅🍅'
         ]
-        project = self.cli_manager.paginated_choice(message='How task you want start?',offset=offset,limit=limit,task_list=buceta)
+        project = self.cli_manager.paginated_choice(message='How task you want start?',offset=offset,limit=limit,task_list=task_fake_list)
 
         match project:
             case '🏠 Home':

@@ -4,9 +4,11 @@ import random
 
 from typing import List, Any
 from pyfiglet import figlet_format
+from datetime import timedelta
 
 from utils.text_to_bold import text_to_bold
 from utils.pagination import paginated_menu
+from libs.pomodoro.pomodoro_manager import PomodoroManager
 from libs.notification_manager import NotificationManager
 from utils.progress_bar import progress_bar
 
@@ -54,58 +56,51 @@ class CLIManager:
         ).ask()
 
         return task
-
-    def create_pomodoro(self):
+    
+    def pomodoro_menu(self, pomodoro_manager: PomodoroManager):
         self.clear_terminal()
         self.main_logo()
-        print("Standalone Pomodoro")
-        print(self.motivational_phrase())
-        print("🕒 Total time: " "20m\n\n")
+        pomodoro_manager.show_pomodoro()
+        
+    def create_pomodoro(self, pomodoro_manager: PomodoroManager):
+        for index, _ in enumerate(pomodoro_manager.pomodoro_progress):
+            self.pomodoro_menu(pomodoro_manager=pomodoro_manager)
+            progress_bar(total_seconds=pomodoro_manager.pomodoro_info.time_for_pomodoro_sec,  state='pomodoro')
+            
+            pomodoro_manager.end_pomodoro(pomodoro_to_end_index=index)
 
-        progress_bar(total_seconds=5,  state='pomodoro')
+            if index < pomodoro_manager.pomodoro_info.count-1:
+                self.notifcation_manager.send_notification(
+                    message="Time to take a well-deserved break. 🌟 Keep up the good work! 🚀",
+                    title="🍅 Pomodoro X completed successfully! 🎉",
+                    state="pomodoro_finished"
+                )
+                self.create_break(pomodoro_manager=pomodoro_manager, act_pomodoro_index=index)
+            
         self.notifcation_manager.send_notification(
-            message="Time to take a well-deserved break. 🌟 Keep up the good work! 🚀",
-            title="🍅 Pomodoro X completed successfully! 🎉",
+            message="👏 Amazing! You've successfully completed all your Pomodoros for this task! 🏅 Excellent work! ✨",
+            title="🏁 Task Completed Successfully! 🎉",
             state="pomodoro_finished"
         )
-        self.clear_terminal()
-        self.main_logo()
-        questionary.confirm("⏳ Start break?").ask()
-        self.clear_terminal()
-        self.main_logo()
+        
+    def create_break(self, pomodoro_manager: PomodoroManager, act_pomodoro_index: int):
+        self.pomodoro_menu(pomodoro_manager=pomodoro_manager)
+        break_time = pomodoro_manager.pomodoro_progress[act_pomodoro_index]['break_time_sec']
+        
+        
+        while not questionary.confirm("⏳ Start break?").ask():
+            self.pomodoro_menu(pomodoro_manager=pomodoro_manager)
 
-    def create_break(self):
-        print("Pomodoro Name: Test")
-        print("Pomodoro Description: Teste descricao")
-        print("Total time: " "12h")
-        progress_bar(total_seconds=5, state='break') .send_notification(
+        self.pomodoro_menu(pomodoro_manager=pomodoro_manager)
+        progress_bar(total_seconds=break_time, state='break')
+        self.notifcation_manager.send_notification(
             message="Time to get back to work! 💪 Start your next Pomodoro session now. ⏳",
             title="🍅 Break Over! Let's Begin Pomodoro X! 🔥",
             state="break_finished"
         )
 
-    def ask_new_pomodoro(self):
-        CLIManager.clear_terminal()
-        CLIManager.main_logo()
-        questionary.confirm("⏳ Start new pomodoro?").ask()
-
-    def motivational_phrase(self):
-        phrases = [
-            "You're just one Pomodoro away from great progress! 🚀",
-            "Keep going, every Pomodoro counts! 💪",
-            "Today's effort will be tomorrow's success. 🌟",
-            "Stay focused, you're doing great! 🎯",
-            "Persistence is the key to achievement. 🗝️",
-            "One step at a time, one Pomodoro at a time. 🕒",
-            "You are capable of great things, keep going! 🌠",
-            "Every completed Pomodoro is a victory. 🏆",
-            "Work hard, rest well, repeat. 🔄",
-            "The road to success is paved with small, consistent steps. 🚶‍♂️"
-        ]
-        return random.choice(phrases)
-    
-    def break_phrase(self):
-        ...
+        while not questionary.confirm("🔄 Return to work?").ask():
+            self.pomodoro_menu(pomodoro_manager=pomodoro_manager)
 
     def pomodoro_notifications(self, state: str):
         match state:
