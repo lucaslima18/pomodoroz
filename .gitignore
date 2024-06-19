@@ -320,3 +320,5 @@ tmp/*
 !tmp/.gitkeep
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,windows,python,pycharm+all,visualstudiocode
+src/cli/__pycache__/main_menu.cpython-311.pyc
+ src/utils/__pycache__/sound_notification.cpython-311.pyc
