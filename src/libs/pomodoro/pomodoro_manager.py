@@ -5,6 +5,10 @@ from datetime import timedelta
 
 from ..schemas import PomodoroInfo, PomodoroProgress, Pomodoro
 
+SHORT_BREAK_SEC = 5 * 60
+LONG_BREAK_SEC = 15 * 60
+POMODOROS_PER_CYCLE = 4
+
 
 class PomodoroManager:
     def __init__(self, pomodoro_info: PomodoroInfo):
@@ -50,25 +54,17 @@ class PomodoroManager:
         return random.choice(phrases)
 
     def __progress_calculate(self) -> List[PomodoroProgress]:
-        default_break_time_sec = 5
-        try:
-            if self.pomodoro_info.count > 4:
-                breaks_without_addition = [
-                    {"done": False, "break_time_sec": default_break_time_sec}
-                    for _ in range(3)
-                ]
-                breaks_with_addition = [
-                    {
-                        "done": False,
-                        "break_time_sec": default_break_time_sec
-                        + (break_addition * default_break_time_sec),
-                    }
-                    for break_addition in range(self.pomodoro_info.count - 3)
-                ]
-                return breaks_without_addition + breaks_with_addition
-            return [
-                {"done": False, "break_time_sec": default_break_time_sec}
-                for _ in range(self.pomodoro_info.count)
-            ]
-        except Exception as err:
-            print(err)
+        """Build one progress entry per pomodoro with its break length.
+
+        Follows the Pomodoro technique: a short break after each pomodoro
+        and a long break after every fourth one.
+        """
+        return [
+            {"done": False, "break_time_sec": self.__break_time_sec(pomodoro_number)}
+            for pomodoro_number in range(1, self.pomodoro_info.count + 1)
+        ]
+
+    def __break_time_sec(self, pomodoro_number: int) -> int:
+        if pomodoro_number % POMODOROS_PER_CYCLE == 0:
+            return LONG_BREAK_SEC
+        return SHORT_BREAK_SEC
